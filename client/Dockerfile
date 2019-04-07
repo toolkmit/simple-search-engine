@@ -12,5 +12,8 @@ COPY package.json /usr/src/app/package.json
 RUN npm install --silent
 RUN npm install react-scripts@2.1.2 -g --silent
 
+# add app files
+COPY . /usr/src/app
+
 # start app
 CMD ["npm", "start"]
