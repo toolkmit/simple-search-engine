@@ -1,0 +1,7 @@
+Flask==1.0.2
+requests==2.21.0
+beautifulsoup4==4.7.1
+flask-cors==3.0.7
+w3lib==1.19.0
+
+

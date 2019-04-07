@@ -1,0 +1,7 @@
+# backend
+backend/env
+backend/__pycache__
+
+# client
+client/node_modules
+client/.DS_Store

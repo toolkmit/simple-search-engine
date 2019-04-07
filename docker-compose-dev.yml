@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+
+  flask-api:
+    container_name: flask-api
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - './backend:/usr/src/app'
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_APP=api.py
+      - FLASK_ENV=development
+
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - './client:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - 3007:3000
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
+    depends_on:
+      - flask-api

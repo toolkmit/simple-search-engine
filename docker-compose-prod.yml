@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+
+  flask-api:
+    container_name: flask-api
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_APP=api.py
